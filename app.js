@@ -19,7 +19,7 @@ routes(router);
 app.use(basicAuth);
 
 app.use("/api", router);
-
+app.get('*', function(req, res) { res.status(404).send({message: 'page not found!'}) });
 app.use(errorHandler);
 
 const server = app.listen(process.env.PORT || 5000, () => {
